@@ -1,0 +1,38 @@
+# Xiaomi MiTV-MZTU0 (codename river), Google TV 14 (SDK 34), firmware UKN1.240806.017.V816.0.26.6.2.6.URTMIXM
+# Stock launcher: com.google.android.apps.tv.launcherx   Live TV app: com.mitv.livetv
+#
+# Apply:   TV_HOST=<tv ip> tools/disable.sh examples/xiaomi-mitv-mztu0/debloat.txt
+# Undo:    TV_HOST=<tv ip> tools/restore.sh examples/xiaomi-mitv-mztu0/debloat.txt com.google.android.apps.tv.launcherx
+# Everything is DISABLED, not uninstalled. Comment out any line you want to keep.
+#
+# Kept on purpose: mitv.service (remote global keys), com.mi.bluetooth + com.mitv.overseaservice (remote,
+# Netflix button), com.xiaomi.tvqs.overseas.y24 (quick settings), com.mitv.livetv + MediaTek TIS (HDMI/tuner),
+# voice (katniss), Chromecast (mediashell), AirPlay/Miracast/Mi cast, and the OTA updaters.
+
+# Xiaomi telemetry
+com.miui.tv.analytics
+com.xiaomi.statistic
+
+# PatchWall and Mi content rows / promos
+com.mitv.tvhome.atv
+com.mitv.tvhome.michannel
+com.mitv.tvhome.mitvplus
+com.mitv.tvhome.oemtab
+com.xm.webcontent
+com.xiaomi.floatingframe               # store demo mode, disabled from the factory
+
+# Background junk
+com.xiaomi.mitv.tvmanager              # "TV Manager" cleaner with Firebase analytics
+com.xiaomi.mitv.manualhelp
+android.autoinstalls.config.google.gtvpai   # Google TV Play auto-install stub
+
+# Preloaded apps nobody asked for
+com.google.android.youtube.tvmusic
+com.google.android.play.games
+com.google.android.videos
+com.xiaomi.mimusic2
+com.mitv.gallery
+com.mxtech.videoplayer.television      # archived stub, MX Player Pro is the real one
+
+# Streaming apps not used (by choice)
+com.sonyliv

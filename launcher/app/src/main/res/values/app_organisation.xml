@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_library">App library</string>
+    <string name="app_actions">App actions</string>
+    <string name="move_app">Move</string>
+    <string name="app_info">App info</string>
+    <string name="in_dock">In dock</string>
+    <string name="remove_from_home">Remove from Home</string>
+    <string name="add_app">Add app</string>
+    <string name="choose_dock_app">Choose a dock app</string>
+    <string name="installed_app_library">Installed app library</string>
+    <string name="replace_in_dock">Replace in dock</string>
+    <string name="dock_updated">Dock updated</string>
+    <string name="move_cancelled">Move cancelled</string>
+    <string name="app_order_saved">App order saved</string>
+    <string name="move_instructions">Arrows to move · OK to save · Back to cancel</string>
+    <string name="removed_from_home">Removed from Home. Available in App library.</string>
+    <string name="on_home_suffix">\u0020· On Home</string>
+    <string name="replace_app">Replace %1$s</string>
+    <string name="cannot_open_app">Cannot open %1$s</string>
+    <string name="moving_description">, moving. Arrows to move, OK to save, Back to cancel</string>
+    <string name="app_menu_checked">%1$s ✓</string>
+</resources>

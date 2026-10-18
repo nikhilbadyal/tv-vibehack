@@ -1,0 +1,4 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="86dp">
+    <TextView android:id="@id/appLibrary" style="@style/TopButton" android:layout_gravity="center"
+        android:layout_marginStart="0dp" android:text="@string/app_library" android:drawableStart="@drawable/ic_apps" />
+</FrameLayout>
