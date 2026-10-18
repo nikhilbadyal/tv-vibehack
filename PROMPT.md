@@ -46,7 +46,10 @@ Launcher
 - Don't install a third-party launcher that charges for basics like wallpapers. Build a small native
   Android TV launcher instead (Java, AndroidX RecyclerView, minSdk matching the TV, debug build is fine),
   install it over ADB, set it as the default home and disable the stock launcher. If several apps claim
-  the HOME intent, set the default with `cmd package set-home-activity`.
+  the HOME intent, set the default with `cmd package set-home-activity`, then check what
+  `cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.HOME` returns:
+  a higher-priority claimant (the stock launcher, a setup wizard) wins even when set-home-activity says
+  Success. Disable those too, one at a time, re-checking after each, but never Settings or the fallback home.
 - Design, Apple TV 4K style: pitch black background; a dock row at the bottom of the screen inside a
   slightly lighter rounded band holding the four apps I pick (ask me which, and the order); the rest of
   the apps in a 4-column grid below that scrolls up when I press Down; one translucent "glass" highlight

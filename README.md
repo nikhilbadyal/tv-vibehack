@@ -155,13 +155,20 @@ AndroidX RecyclerView and nothing heavier. It is built for sets with 1 GB of RAM
 video, no network, no background services.
 
 **Configure** it in [`launcher/app/src/main/res/values/config.xml`](launcher/app/src/main/res/values/config.xml):
-the dock order, apps to hide, your TV's Live TV package, and the number of columns.
+the dock order, apps to hide from the grid (`hidden_apps`) or from the app library too
+(`library_hidden_apps`), your TV's Live TV package, and the number of columns.
 
 **Build and install** with one command:
 
 ```bash
 TV_HOST=192.168.1.50 launcher/build-and-install.sh
 ```
+
+The script also deals with a trap on Google TV: several apps can claim Home (the stock launcher and a
+setup wizard on one Xiaomi), and the stock one outranks ours, so `set-home-activity` reports Success
+while Home still opens the old launcher. After installing, the script lists every package that claims
+Home, asks before disabling them, and repeats until Home resolves to this launcher. It never touches
+Settings or the system fallback home. `YES=1` skips the question; `tools/restore.sh` re-enables them.
 
 It needs JDK 17 and the Android SDK (platform 34, build-tools 34.0.0). On macOS:
 

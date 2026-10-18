@@ -4,7 +4,7 @@
 # Usage: tools\restore.ps1 -TvHost 192.168.1.50 examples\xiaomi-mi-tv-4a\debloat.txt [-Stock stock.launcher.package]
 param(
     [Parameter(Mandatory = $true, Position = 0)][string]$List,
-    [string]$Stock = 'com.google.android.tvlauncher',
+    [string]$Stock = '',
     [string]$TvHost = $env:TV_HOST
 )
 $ErrorActionPreference = 'Stop'
@@ -16,8 +16,12 @@ $py = Join-Path $repo 'tools\venv\Scripts\python.exe'
 if (-not $TvHost) { throw 'pass -TvHost <tv ip> or set $env:TV_HOST' }
 $env:TV_HOST = $TvHost
 
+# Packages build-and-install.ps1 disabled because they claim Home; the first one is the stock launcher.
+$claimedFile = Join-Path $repo 'launcher\home-claimants-disabled.txt'
+$claimed = if (Test-Path $claimedFile) { @(Get-Content $claimedFile | Where-Object { $_.Trim() }) } else { @() }
+if (-not $Stock) { $Stock = if ($claimed) { $claimed[0] } else { 'com.google.android.tvlauncher' } }
 $pkgs = Get-Content $List | ForEach-Object { ($_ -replace '#.*$', '').Trim() } | Where-Object { $_ }
-$cmds = @($pkgs | ForEach-Object { "pm enable $_" }) + @(
+$cmds = @($pkgs | ForEach-Object { "pm enable $_" }) + @($claimed | ForEach-Object { "pm enable $_" }) + @(
     "pm enable $Stock",
     "cmd package set-home-activity --user 0 $Stock",
     'settings put global window_animation_scale 1.0',
