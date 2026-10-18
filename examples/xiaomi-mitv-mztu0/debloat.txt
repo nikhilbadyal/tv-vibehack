@@ -6,12 +6,13 @@
 # Everything is DISABLED, not uninstalled. Comment out any line you want to keep.
 #
 # Kept on purpose: mitv.service (remote global keys), com.mi.bluetooth + com.mitv.overseaservice (remote,
-# Netflix button), com.xiaomi.tvqs.overseas.y24 (quick settings), com.mitv.livetv + MediaTek TIS (HDMI/tuner),
+# Netflix button), com.mitv.livetv + MediaTek TIS (HDMI/tuner),
 # voice (katniss), Chromecast (mediashell), AirPlay/Miracast/Mi cast, and the OTA updaters.
 
 # Xiaomi telemetry
 com.miui.tv.analytics
 com.xiaomi.statistic
+com.xiaomi.tvqs.overseas.y24           # "TvQS": no UI, just boot receivers + an upload service; crashed hourly
 
 # PatchWall and Mi content rows / promos
 com.mitv.tvhome.atv
